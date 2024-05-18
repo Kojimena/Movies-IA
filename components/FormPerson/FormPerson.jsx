@@ -15,12 +15,6 @@ const FormPerson = () => {
     "3": 'Doctor'
   })
 
-  // const fetchId = async () => {
-  //   const response = await fetch("")
-  //   const id = await response.json()
-  //   console.log(id)
-  // }
-
   const fetchOcupation = async () => {
     const response = await fetch("")
     const ocupation = await response.json()
@@ -45,8 +39,8 @@ const FormPerson = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(userInfo)
-    router.push('/recommendation')
+    localStorage.setItem('userInfo', JSON.stringify(userInfo))
+    router.push("/recommendation")
   }
 
   return (

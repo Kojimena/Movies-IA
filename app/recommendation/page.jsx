@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from "next/navigation"
 
 const Recommendation = () => {
-    const router = useRouter();
 
     const [queryData, setQueryData] = useState({
         id: '',
@@ -16,11 +15,10 @@ const Recommendation = () => {
     });
 
     useEffect(() => {
-        if (router.isReady) {
-            const { id, age, gender, occupation, movieId, title, rating } = router.query;
-            setQueryData({ id, age, gender, occupation, movieId, title, rating });
-        }
-    }, [router.isReady, router.query])
+      console.log(JSON.parse(localStorage.getItem('userInfo')));
+      console.log(JSON.parse(localStorage.getItem('ratingData')));
+
+    }, [queryData])
 
     const recommendation = [
         {
@@ -62,7 +60,6 @@ const Recommendation = () => {
 
   return (
     <div className='flex flex-col items-center justify-center p-20'>
-        {queryData.id && console.log(queryData)}
         <h1 className="text-4xl font-bold font-montserrat text-yellow">We recommend you the following movies</h1>
         <div className="flex items-center justify-start gap-4 flex-wrap">
             {recommendation.map((movie, index) => (

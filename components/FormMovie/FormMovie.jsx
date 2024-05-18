@@ -26,18 +26,10 @@ const FormMovie = () => {
     }    
 
     const handleSubmit = (e) => {
-        e.preventDefault();
-        const queryString = new URLSearchParams({
-            id: ratingData.user.id,
-            age: ratingData.user.age,
-            gender: ratingData.user.gender,
-            occupation: ratingData.user.occupation,
-            movieId: ratingData.movie.id,
-            title: ratingData.movie.title,
-            rating: ratingData.rating
-        }).toString();
-        router.push(`/recommendation?${queryString}`);
-    }
+        e.preventDefault()
+        localStorage.setItem('ratingData', JSON.stringify(ratingData))
+        router.push("/recommendation")
+      }
     
 
     const fetchMovie = async () => {
