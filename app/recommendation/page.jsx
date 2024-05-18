@@ -9,14 +9,10 @@ const Recommendation = () => {
         age: '',
         gender: '',
         occupation: '',
-        movieId: '',
-        title: '',
-        rating: ''
     });
 
     useEffect(() => {
       console.log(JSON.parse(localStorage.getItem('userInfo')));
-      console.log(JSON.parse(localStorage.getItem('ratingData')));
 
     }, [queryData])
 
