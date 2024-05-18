@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useRouter } from "next/navigation"
+import API_URL from '@/api'
 
 
 const FormPerson = () => {
@@ -9,16 +10,12 @@ const FormPerson = () => {
     id: '', age: '', gender: '', occupation: ''
   })
 
-  const [ocupation, setOcupation] = useState({
-    "1": 'Student',
-    "2": 'Teacher',
-    "3": 'Doctor'
-  })
+  const [ocupation, setOcupation] = useState({})
 
   const fetchOcupation = async () => {
-    const response = await fetch("")
-    const ocupation = await response.json()
-    console.log(ocupation)
+    const response = await fetch(`${API_URL}/users/occupations`)
+    const ocupation_response = await response.json()
+    setOcupation(ocupation_response)
   }
 
   const handleAge = (e) => {
@@ -42,6 +39,10 @@ const FormPerson = () => {
     localStorage.setItem('userInfo', JSON.stringify(userInfo))
     router.push("/recommendation")
   }
+
+  useEffect(() => {
+    fetchOcupation()
+  }, [])
 
   return (
     <div className='flex flex-col items-center justify-center glassmorphism'>
