@@ -57,8 +57,8 @@ const FormPerson = () => {
         </label>
         <select className="select w-full max-w-xs" onChange={handelGender}>
           <option selected>Gender</option>
-          <option>F</option>
-          <option>M</option>
+          <option value={0}>F</option>
+          <option value={1}>M</option>
         </select>
         <select className="select w-full max-w-xs" onChange={handleOcupation}>
           <option selected>Ocupation</option>
