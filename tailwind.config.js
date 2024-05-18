@@ -32,7 +32,7 @@
         anton : ['anton', 'sans-serif'],
       },
       colors: {
-        "darkgray": "#262626",
+        "yellow": "#e2f40a",
         "lightgray": "#F2F2F2",
         "lightergray": "#EBEBEB",
       },
